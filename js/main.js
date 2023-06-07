@@ -12,8 +12,8 @@ const showMessage = (message, id) => {
 //show bookmarks on the page
 const showBookmark = () => {
   //console.log('updateBookmarksPage');
-  const showBookmark = document.getElementById('bookmark');
-  showBookmark.innerHTML = '';
+  let showBookmarkElement = document.getElementById('bookmark');
+  showBookmarkElement.setAttribute("aria-busy", "true");
 
   for (const bundleName in allBookmarks) {
     const bundle = allBookmarks[bundleName];
@@ -45,9 +45,9 @@ const showBookmark = () => {
       }
       bundleUl.appendChild(tagLi);
     }
-    showBookmark.appendChild(bundleLi);
+    showBookmarkElement.appendChild(bundleLi);
   }
-  showBookmark.setAttribute("aria-busy", "false");
+  showBookmarkElement.setAttribute("aria-busy", "false");
   //console.log('updateBookmarksPage done');
 }
 const checkResults = (results) => {
@@ -380,6 +380,7 @@ const resetData = () => {
   allBundles = [];
   selectedBundles = [];
   allBookmarks = {};
+  document.getElementById('bookmark').innerHTML = '';
   showBundles();
 }
 
