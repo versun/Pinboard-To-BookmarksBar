@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/pico.min.css" />
+</head>
+
+<body>
+    <main class="container">
+        <section>
+
+            <h6>Step 1: </h6>
+            <input type="text" id="pinboard_id" placeholder="Please enter Pinboard id">
+            <p>If not public,please <a href="https://pinboard.in">login</a> first</p>
+
+            <h6>Step 2: </h6>
+            <button id="get_bundles" aria-busy="false">
+                Select bundles as parent folder
+            </button>
+            <form id="bundles"></form>
+
+            <h6>Step 3: </h6>
+            <button id="get_bookmarks" aria-busy="false">
+                Get bookmarks from Pinboard
+            </button>
+
+            <p>Other: <a id="import" aria-busy="false">Import from file(.json)</a></p>
+
+        </section>
+    </main>
+    <dialog id="dialog">
+        <article>
+            <h4 id="alert" style="color: red;"></h4>
+            <footer>
+                <button id="dialog_button">OK</button>
+            </footer>
+        </article>
+    </dialog>
+    <dialog id="dialog_bookmarks">
+        <article>
+            <ul class="main-navigation" id="bookmark" aria-busy="true">
+            </ul>
+            <footer>
+
+                <label for="overwrite_folder">Overwrite the folder with the same name
+                    <input type="checkbox" id="overwrite_folder" name="overwrite_folder" value="true" checked />
+                </label>
+                <button id="add_to_bookmarkBar" aria-busy="false">Add to bookmark bar</button>
+
+                <button id="export" aria-busy="false">Export as file(.json)</button>
+                <button id="dialog_bookmarks_button">Cancel</button>
+
+            </footer>
+        </article>
+    </dialog>
+    <script src="/js/main.js" type="text/javascript"></script>
+</body>
+
+</html>
