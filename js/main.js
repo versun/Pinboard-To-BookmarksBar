@@ -13,7 +13,7 @@ const showMessage = (message, id) => {
 const showBookmark = () => {
   //console.log('updateBookmarksPage');
   let showBookmarkElement = document.getElementById('bookmark');
-  showBookmarkElement.setAttribute("aria-busy", "true");
+  showBookmarkElement.innerHTML = "";
 
   for (const bundleName in allBookmarks) {
     const bundle = allBookmarks[bundleName];
@@ -218,7 +218,10 @@ const getBookmarksPerTag = async (tagUrl) => {
 //get all Bookmarks in selected bundles, return allBookmarks:{bundleName:{tagName:{title:"",url:""}}}
 const getAllBookmarks = async () => {
   //console.log('main:getAllBookmarks');
+  allBookmarks = {};
   getSelectedBundles();
+  document.getElementById('bookmark').setAttribute("aria-busy", "true");
+
   if (selectedBundles.length == 0) {
     showMessage('Please select at least one bundle', "#alert");
     return;
