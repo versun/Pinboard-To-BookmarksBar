@@ -199,7 +199,6 @@ const getTagsPerBundle = (bundleHtmlCode) => {
 }
 //EN: get all bookmarks in a tag, return bookmarks:[{title:"",url:""}]
 const getBookmarksPerTag = async (tagUrl) => {
-  //console.log('----getBookmarksPerTag:',tagUrl);
   const htmlCode = await getHtmlCode(tagUrl);
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlCode, 'text/html');
@@ -211,8 +210,16 @@ const getBookmarksPerTag = async (tagUrl) => {
       url: aElement.href
     });
   }
+
+  const earlierLink = doc.querySelector('#top_earlier');
+  if (earlierLink) {
+    const href = earlierLink.getAttribute('href');
+    const subBookmarks = await getBookmarksPerTag(`${BASE_URL}${href}`);
+    bookmarksPerTab.push(...subBookmarks);
+  }
+
   checkResults(bookmarksPerTab);
-  //console.log("----getBookmarksPerTag ",tagUrl," done");
+  //console.log(bookmarksPerTab.length);
   return bookmarksPerTab;
 }
 //get all Bookmarks in selected bundles, return allBookmarks:{bundleName:{tagName:{title:"",url:""}}}
