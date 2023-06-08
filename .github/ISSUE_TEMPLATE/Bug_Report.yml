@@ -1,0 +1,61 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: checkboxes
+    attributes:
+      label: Search before asking
+      options:
+        - label: Please [search](https://github.com/versun/Pinboard-To-BookmarksBar/issues) before asking
+          required: true
+  - type: input
+    id: version
+    attributes:
+      label: Extension Version
+      description: What version of our extension are you running?
+      placeholder: Like "2023.6.27.3"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      description: What platform are you seeing the problem on?
+      multiple: true
+      options:
+        - Windows
+        - macOS
+        - Linux
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Browsers
+      description: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Microsoft Edge
+        - Other
+  - type: textarea
+    id: describe
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: To Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: 1. Go to '...' 2. Click translate
+    validations:
+      required: false
+  - type: textarea
+    id: others
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.
+ 

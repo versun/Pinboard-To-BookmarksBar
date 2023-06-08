@@ -1,0 +1,23 @@
+name: Ask a question
+description: Ask a question or get help
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: checkboxes
+    attributes:
+      label: Search before asking
+      options:
+        - label: Please [search](https://github.com/versun/Pinboard-To-BookmarksBar/issues) before asking
+          required: true
+  - type: textarea
+    attributes:
+      label: Question
+      description: What do you need help with?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: Any code snippets, error messages, or dependency details that may be related?
+    validations:
+      required: false

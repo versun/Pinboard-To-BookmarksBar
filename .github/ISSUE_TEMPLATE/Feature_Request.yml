@@ -1,0 +1,29 @@
+name: Feature request
+description: New feature or request 
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: checkboxes
+    attributes:
+      label: Search before asking
+      options:
+        - label: Please [search](https://github.com/versun/Pinboard-To-BookmarksBar/issues) before asking
+          required: true
+  - type: textarea
+    attributes:
+      label: New Feature
+      description: Short list of what the feature request aims to address?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Why you want to add these features
+      description: Why do you think this feature is needed? Are there current alternatives?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposal
+      description: How should this feature be implemented? Are you interested in contributing?
+    validations:
+      required: false
