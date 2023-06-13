@@ -26,5 +26,10 @@
          "48": "img/48.png"
       }
    },
+   "browser_specific_settings": {
+      "gecko": {
+        "update_url": "https://example.com/updates.json"
+      }
+    },
    "version": "2023.6.12.5"
 }
